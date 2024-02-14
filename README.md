@@ -1,6 +1,8 @@
-# React + Vite
+# React + Vite + ChatGPT
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Uso Vite + ChatGPT para crear un app de ecommerce
 
 Currently, two official plugins are available:
 
