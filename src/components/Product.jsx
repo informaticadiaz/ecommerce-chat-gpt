@@ -1,18 +1,31 @@
 import { useCarrito } from "../utilities/Carrito"; // Importa el hook useCarrito para interactuar con el carrito
 
-function Product({ nombre, precio, id }) {
-  const { agregarProducto } = useCarrito(); // Obtiene la función agregarProducto del contexto del carrito
+function Product({ nombre, precio, id, cantidad }) {
+  // Obtiene la función agregarProducto del contexto del carrito
+
+  const { carrito, agregarProducto, actualizarCantidadProducto } = useCarrito();
+
+  // Define la variable producto fuera de la función
+  const producto = {
+    nombre: "",
+    precio: 0,
+    id: 0,
+    cantidad: 0,
+  };
 
   // Maneja el clic en el botón "Agregar al Carrito"
   const handleClick = () => {
-    // Crea un objeto representando el producto
-    const producto = {
-      nombre: nombre,
-      precio: precio,
-      id: id,
-    };
-    // Agrega el producto al carrito llamando a la función agregarProducto del contexto del carrito
-    agregarProducto(producto);
+    // Busca el producto en el carrito
+    const productoEnCarrito = carrito.find((producto) => producto.id === id);
+
+    // Actualiza las propiedades del objeto producto
+    // Si el producto no está en el carrito, agrégalo
+    if (!productoEnCarrito) {
+      agregarProducto({ ...producto, nombre, precio, id, cantidad });
+    } else {
+      // Actualiza la cantidad del producto
+      actualizarCantidadProducto(id, productoEnCarrito.cantidad + 1);
+    }
   };
 
   return (
