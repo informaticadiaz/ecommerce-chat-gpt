@@ -1,6 +1,7 @@
 import "./App.css";
 import Product from "./components/Product";
 import productos from "./productos/Productos";
+import Cart from "./components/Cart";
 
 function App({
   agregarProducto,
@@ -10,6 +11,7 @@ function App({
   return (
     <>
       <h1>Ecommerce App</h1>
+      <Cart />
       {productos.map((producto) => (
         <Product
           nombre={producto.nombre}
