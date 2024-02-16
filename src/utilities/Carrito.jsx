@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 // Crear contexto para el carrito de compras
 const CarritoContext = createContext();
@@ -11,6 +12,8 @@ export function useCarrito() {
 // Componente proveedor del contexto del carrito de compras
 export function CarritoProvider({ children }) {
   const [carrito, setCarrito] = useState([]);
+
+
 
   // Función para agregar un producto al carrito
   function agregarProducto(producto) {
@@ -37,4 +40,10 @@ export function CarritoProvider({ children }) {
       {children}
     </CarritoContext.Provider>
   );
+
 }
+
+  // PropTypes
+  CarritoProvider.propTypes = {
+    children: PropTypes.node,
+  }

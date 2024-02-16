@@ -1,4 +1,6 @@
 import { useCarrito } from "../utilities/Carrito";
+import PropTypes from 'prop-types';
+
 
 function BotonAgregarAlCarrito({ producto }) {
   const { agregarProducto } = useCarrito();
@@ -11,3 +13,8 @@ function BotonAgregarAlCarrito({ producto }) {
 }
 
 export default BotonAgregarAlCarrito;
+
+BotonAgregarAlCarrito.propTypes = {
+  producto: PropTypes.object.isRequired,
+};
+
