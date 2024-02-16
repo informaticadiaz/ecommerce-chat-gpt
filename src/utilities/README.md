@@ -1,3 +1,4 @@
+
 Este código es un ejemplo de cómo se puede utilizar el contexto en React para gestionar un carrito de compras en una aplicación. Aquí hay un desglose de lo que está sucediendo:
 
 1. Se importan las funciones necesarias de React, incluyendo `createContext`, `useContext` y `useState`.
