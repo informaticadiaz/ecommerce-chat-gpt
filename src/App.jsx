@@ -27,7 +27,7 @@ function App() {
           </div>
         </div>
       </nav>
-      <h1 className="text-font-bold text-3xl underline">Ecommerce App</h1>
+      <h1 className="text-font-bold p-6 text-3xl">Ecommerce App</h1>
       <div className="grid grid-cols-3 gap-4">
         {productos.map((producto) => (
           <Product

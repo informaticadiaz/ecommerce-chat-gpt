@@ -1,5 +1,5 @@
 // Importa el hook useCarrito para interactuar con el carrito
-import { useCarrito } from "../utilities/Carrito";
+import { useCarrito } from "../utilities/CarritoProvider";
 import PropTypes from "prop-types";
 
 function Product({ nombre, precio, id, cantidad }) {
@@ -31,8 +31,8 @@ function Product({ nombre, precio, id, cantidad }) {
   };
 
   return (
-    <div className="flex-col m-10 space-y-3">
-      <h3 >{nombre}</h3>
+    <div className="m-2 flex-col space-y-3 rounded-md bg-slate-600 p-4">
+      <h3>{nombre}</h3>
       <p>Precio: ${precio}</p>
       <button onClick={handleClick}>Agregar al Carrito</button>
     </div>
@@ -44,6 +44,6 @@ Product.propTypes = {
   precio: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   cantidad: PropTypes.number.isRequired,
-}
+};
 
 export default Product;

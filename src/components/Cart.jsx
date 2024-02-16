@@ -1,8 +1,14 @@
-import { useCarrito } from "../utilities/Carrito";
+import { useCarrito } from "../utilities/CarritoProvider";
 import PropTypes from "prop-types";
 
 export default function Cart({ mostrarCarrito, setMostrarCarrito }) {
-  const { carrito } = useCarrito();
+  const {
+    carrito,
+    calcularTotal,
+    eliminarProducto,
+    restarCantidadProducto,
+    sumarCantidadProducto,
+  } = useCarrito();
 
   return (
     <>
@@ -14,7 +20,7 @@ export default function Cart({ mostrarCarrito, setMostrarCarrito }) {
         <div className="flex flex-wrap gap-6 rounded-md bg-slate-400 p-6">
           {carrito.map((producto) => (
             <div
-              className="mx-auto w-3/12 min-w-[200px] space-y-3 rounded-md bg-slate-200 p-3 font-semibold text-slate-700"
+              className="mx-auto w-3/12 min-w-[200px] space-y-3 rounded-md bg-slate-300 p-3 font-semibold text-slate-700"
               key={producto.id}
             >
               {/* Agregar Imagenes a los productos 
@@ -22,8 +28,19 @@ export default function Cart({ mostrarCarrito, setMostrarCarrito }) {
               <h3>{producto.nombre}</h3>
               <p>Precio: ${producto.precio}</p>
               <p>Cantidad: {producto.cantidad}</p>
+              <button onClick={() => eliminarProducto(producto.id)}>x</button>
+              <button onClick={() => restarCantidadProducto(producto.id, 1)}>
+                -
+              </button>
+              <button onClick={() => sumarCantidadProducto(producto.id, 1)}>
+                +
+              </button>
             </div>
           ))}
+          <div className="mx-auto w-3/12 min-w-[200px] space-y-3 rounded-md bg-slate-300 p-3 font-semibold text-slate-700">
+            <h3>Total</h3>
+            <p>${calcularTotal()}</p>
+          </div>
         </div>
       </div>
     </>
