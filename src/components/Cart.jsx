@@ -20,9 +20,12 @@ export default function Cart({ mostrarCarrito, setMostrarCarrito }) {
         <h1 className="text-font-bold text-3xl">Carrito</h1>
 
         <div className="rounded-md bg-slate-400 p-8">
-          <p className="text-font-bold mb-4 text-xl">
-            {carrito.length === 0 && <p>No hay productos en el carrito</p>}
-          </p>
+          {carrito.length === 0 && (
+            <p className="text-font-bold mb-4 text-xl">
+              No hay productos en el carrito
+            </p>
+          )}
+
           {/* card cart */}
           <div className="grid grid-cols-3 gap-4">
             {/* productos en carrito */}

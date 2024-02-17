@@ -15,7 +15,20 @@ export function CarritoProvider({ children }) {
 
   // Función para agregar un producto al carrito
   function agregarProducto(producto) {
-    setCarrito([...carrito, producto]);
+    // busca el producto en el carrito
+    const productoEnCarrito = carrito.find(
+      (productoEnCarrito) => productoEnCarrito.id === producto.id,
+    );
+    if (productoEnCarrito) {
+      // si el producto ya existe en el carrito, actualiza la cantidad
+      actualizarCantidadProducto(
+        productoEnCarrito.id,
+        productoEnCarrito.cantidad + 1,
+      );
+    } else {
+      // si el producto no existe en el carrito, lo agrega
+      setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+    }
   }
 
   // Función para eliminar un producto del carrito

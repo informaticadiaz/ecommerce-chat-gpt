@@ -4,30 +4,14 @@ import PropTypes from "prop-types";
 
 function Product({ nombre, precio, id, cantidad }) {
   // Obtiene la función agregarProducto del contexto del carrito
-
-  const { carrito, agregarProducto, actualizarCantidadProducto } = useCarrito();
+  const { agregarProducto } = useCarrito();
 
   // Define la variable producto fuera de la función
-  const producto = {
-    nombre: "",
-    precio: 0,
-    id: 0,
-    cantidad: 0,
-  };
 
   // Maneja el clic en el botón "Agregar al Carrito"
   const handleClick = () => {
-    // Busca el producto en el carrito
-    const productoEnCarrito = carrito.find((producto) => producto.id === id);
-
-    // Actualiza las propiedades del objeto producto
-    // Si el producto no está en el carrito, agrégalo
-    if (!productoEnCarrito) {
-      agregarProducto({ ...producto, nombre, precio, id, cantidad });
-    } else {
-      // Actualiza la cantidad del producto
-      actualizarCantidadProducto(id, productoEnCarrito.cantidad + 1);
-    }
+    // Llama a la función agregarProducto del contexto del carrito
+    agregarProducto({ nombre, precio, id, cantidad });
   };
 
   return (
