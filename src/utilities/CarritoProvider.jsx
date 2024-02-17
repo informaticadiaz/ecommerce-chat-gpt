@@ -67,6 +67,15 @@ export function CarritoProvider({ children }) {
     );
   }
 
+  // Función para calcular el precio total de un producto en el carrito
+  function calcularPrecioTotalProducto(id) {
+    const producto = carrito.find((producto) => producto.id === id);
+    if (producto) {
+      return producto.precio * producto.cantidad;
+    }
+    return 0;
+  }
+
   return (
     <CarritoContext.Provider
       value={{
@@ -77,6 +86,7 @@ export function CarritoProvider({ children }) {
         restarCantidadProducto,
         sumarCantidadProducto,
         calcularTotal,
+        calcularPrecioTotalProducto,
       }}
     >
       {children}
