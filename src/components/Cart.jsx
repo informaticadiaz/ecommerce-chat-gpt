@@ -27,36 +27,42 @@ export default function Cart({ mostrarCarrito, setMostrarCarrito }) {
           )}
 
           {/* card cart */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid gap-4 md:grid-cols-1 xl:grid-cols-3">
             {/* productos en carrito */}
-            <div className="col-span-2 space-y-4">
+            <div className="space-y-4 xl:col-span-2">
               {carrito.map((producto) => (
                 <div
-                  className="mx-auto flex items-center justify-between rounded-md bg-slate-300 p-3 font-semibold text-slate-700"
+                  className="mx-auto rounded-md bg-slate-300 p-3 font-semibold text-slate-700"
                   key={producto.id}
                 >
                   {/* Agregar Imagenes a los productos 
           <img src={producto.imagen} alt={producto.nombre} />*/}
                   <p>imagen</p>
-                  <h3>{producto.nombre}</h3>
-                  <p>${producto.precio}</p>
-                  <button
-                    onClick={() => restarCantidadProducto(producto.id, 1)}
-                  >
-                    -
-                  </button>
-                  <p>{producto.cantidad}</p>
-                  <button onClick={() => sumarCantidadProducto(producto.id, 1)}>
-                    +
-                  </button>
-                  <p>${calcularPrecioTotalProducto(producto.id)}</p>
-                  <button onClick={() => eliminarProducto(producto.id)}>
-                    x
-                  </button>
+                  <div className="flex justify-between p-4">
+                    <p>{producto.nombre}</p>
+                    <p>${producto.precio}</p>
+                  </div>
+                  <div className="flex items-center justify-between p-4 ">
+                    <button
+                      onClick={() => restarCantidadProducto(producto.id, 1)}
+                    >
+                      -
+                    </button>
+                    <p>{producto.cantidad}</p>
+                    <button
+                      onClick={() => sumarCantidadProducto(producto.id, 1)}
+                    >
+                      +
+                    </button>
+                    <p>${calcularPrecioTotalProducto(producto.id)}</p>
+                    <button onClick={() => eliminarProducto(producto.id)}>
+                      x
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="col-span-1 mx-auto w-full space-y-8 rounded-md bg-slate-300 p-3 font-semibold text-slate-700">
+            <div className="w-full rounded-md bg-slate-300 p-3 font-semibold text-slate-700">
               <h3>Orden</h3>
               <h3>Total</h3>
               <p>${calcularTotal()}</p>

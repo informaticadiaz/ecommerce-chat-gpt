@@ -8,7 +8,7 @@ function App() {
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
   return (
     <>
-      <nav className="fixed left-0 right-0  top-0 bg-slate-500 p-10">
+      <nav className="sticky bg-slate-500 p-10">
         <div className="flex justify-between ">
           <span>Logo</span>
           <div>
@@ -28,10 +28,11 @@ function App() {
         </div>
       </nav>
       <h1 className="text-font-bold p-6 text-3xl">Ecommerce App</h1>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {productos.map((producto) => (
           <Product
             key={producto.id}
+            img={producto.img}
             nombre={producto.nombre}
             precio={producto.precio}
             id={producto.id}

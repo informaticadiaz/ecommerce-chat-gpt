@@ -2,7 +2,7 @@
 import { useCarrito } from "../utilities/CarritoProvider";
 import PropTypes from "prop-types";
 
-function Product({ nombre, precio, id, cantidad }) {
+function Product({ nombre, precio, id, cantidad, img }) {
   // Obtiene la función agregarProducto del contexto del carrito
   const { agregarProducto } = useCarrito();
 
@@ -15,8 +15,9 @@ function Product({ nombre, precio, id, cantidad }) {
   };
 
   return (
-    <div className="m-2 flex-col space-y-3 rounded-md bg-slate-600 p-4">
+    <div className="m-4 flex-col space-y-3 rounded-md bg-slate-600 p-4">
       <h3>{nombre}</h3>
+      <img src={img} alt={nombre} />
       <p>Precio: ${precio}</p>
       <button onClick={handleClick}>Agregar al Carrito</button>
     </div>
@@ -28,6 +29,7 @@ Product.propTypes = {
   precio: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   cantidad: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
 };
 
 export default Product;
