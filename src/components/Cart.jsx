@@ -13,7 +13,7 @@ export default function Cart({ mostrarCarrito, setMostrarCarrito }) {
 
   return (
     <>
-      <div className="absolute left-0 right-0 top-0 h-screen space-y-6 bg-slate-500 p-10">
+      <div className="absolute left-0 right-0 top-0 space-y-6 bg-slate-500 p-10">
         <button className="" onClick={() => setMostrarCarrito(!mostrarCarrito)}>
           {mostrarCarrito ? "Ocultar Carrito" : "Mostrar Carrito"}
         </button>
@@ -35,14 +35,14 @@ export default function Cart({ mostrarCarrito, setMostrarCarrito }) {
                   className="mx-auto rounded-md bg-slate-300 p-3 font-semibold text-slate-700"
                   key={producto.id}
                 >
-                  {/* Agregar Imagenes a los productos 
-          <img src={producto.imagen} alt={producto.nombre} />*/}
-                  <p>imagen</p>
-                  <div className="flex justify-between p-4">
-                    <p>{producto.nombre}</p>
-                    <p>${producto.precio}</p>
+                  <div className="p-4 md:flex">
+                    <img className="mx-auto" src={producto.img} alt="imagen" />
+                    <div className="mx-auto my-4 md:my-8 md:space-y-8">
+                      <p>{producto.nombre}</p>
+                      <p>${producto.precio}</p>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between p-4 ">
+                  <div className="flex items-center justify-between px-4">
                     <button
                       onClick={() => restarCantidadProducto(producto.id, 1)}
                     >

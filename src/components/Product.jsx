@@ -11,13 +11,13 @@ function Product({ nombre, precio, id, cantidad, img }) {
   // Maneja el clic en el botón "Agregar al Carrito"
   const handleClick = () => {
     // Llama a la función agregarProducto del contexto del carrito
-    agregarProducto({ nombre, precio, id, cantidad });
+    agregarProducto({ nombre, precio, id, cantidad, img });
   };
 
   return (
     <div className="m-4 flex-col space-y-3 rounded-md bg-slate-600 p-4">
       <h3>{nombre}</h3>
-      <img src={img} alt={nombre} />
+      <img className="mx-auto " src={img} alt={nombre} />
       <p>Precio: ${precio}</p>
       <button onClick={handleClick}>Agregar al Carrito</button>
     </div>
