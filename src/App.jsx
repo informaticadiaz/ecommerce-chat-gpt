@@ -3,9 +3,11 @@ import Product from "./components/Product";
 import productos from "./productos/Productos";
 import Cart from "./components/Cart";
 import { useState } from "react";
+import { useCarrito } from "./utilities/CarritoProvider"; // Asegúrate de importar el hook useCarrito
 
 function App() {
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
+  const { sumarUnidadesProductos } = useCarrito(); // Obtén la función sumarUnidadesProductos del contexto del carrito
 
   return (
     <>
@@ -13,10 +15,13 @@ function App() {
         <div className="flex justify-between">
           <span>Logo</span>
           <div>
+            {/* Renderiza el resultado de la función sumarUnidadesProductos */}
             <button
               className=""
               onClick={() => setMostrarCarrito(!mostrarCarrito)}
             >
+              {/* muestra camtodad de productos */}
+              {sumarUnidadesProductos()}
               {mostrarCarrito ? "Mostrar Productos" : "Mostrar Carrito"}
             </button>
           </div>

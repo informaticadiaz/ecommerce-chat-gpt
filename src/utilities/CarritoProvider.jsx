@@ -89,6 +89,14 @@ export function CarritoProvider({ children }) {
     return 0;
   }
 
+  // Función para sumar las unidades de todos los productos en el carrito
+  function sumarUnidadesProductos() {
+    return carrito.reduce(
+      (totalUnidades, producto) => totalUnidades + producto.cantidad,
+      0,
+    );
+  }
+
   return (
     <CarritoContext.Provider
       value={{
@@ -98,6 +106,7 @@ export function CarritoProvider({ children }) {
         actualizarCantidadProducto,
         restarCantidadProducto,
         sumarCantidadProducto,
+        sumarUnidadesProductos,
         calcularTotal,
         calcularPrecioTotalProducto,
       }}

@@ -13,7 +13,7 @@ export default function Cart({ mostrarCarrito, setMostrarCarrito }) {
 
   return (
     <>
-      <div className="absolute left-0 right-0 top-0 space-y-6 bg-slate-500 p-10">
+      <div className="absolute left-0 right-0 top-0 mx-auto max-w-screen-xl	 space-y-6 bg-slate-500 p-10">
         <button className="" onClick={() => setMostrarCarrito(!mostrarCarrito)}>
           {mostrarCarrito ? "Ocultar Carrito" : "Mostrar Carrito"}
         </button>
