@@ -1,7 +1,9 @@
 import "./App.css";
-import Product from "./components/Product";
 import productos from "./productos/Productos";
+import Category from "./components/Category";
+import Product from "./components/Product";
 import Cart from "./components/Cart";
+
 import { useState } from "react";
 import { useCarrito } from "./utilities/CarritoProvider"; // Asegúrate de importar el hook useCarrito
 
@@ -28,6 +30,7 @@ function App() {
         </div>
       </nav>
       <h1 className="text-font-bold p-6 text-3xl">Ecommerce App</h1>
+      <Category />
       {mostrarCarrito ? (
         <Cart
           mostrarCarrito={mostrarCarrito}
