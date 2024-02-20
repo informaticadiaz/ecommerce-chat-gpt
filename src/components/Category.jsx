@@ -1,10 +1,19 @@
 export default function Category() {
   return (
-    <div className="flex space-x-4 p-4 text-xl ">
-      <span className="bg-slate-500 px-4 py-2">Camisas</span>
-      <span className="bg-slate-500 px-4 py-2">Pantalones</span>
-      <span className="bg-slate-500 px-4 py-2">Pantalones</span>
-      <span className="bg-slate-500 px-4 py-2">Zapatillas</span>
+    <div className="flex justify-around p-4 text-xl">
+      {/* trabajar en el hover de los span poner borde transparente y un borde con color al hacer hover tambien agregar focus */}
+      <span className="rounded bg-slate-500 px-4 py-2 hover:bg-slate-700">
+        Camisas
+      </span>
+      <span className="rounded bg-slate-500 px-4 py-2 hover:bg-slate-700">
+        Pantalones
+      </span>
+      <span className="rounded bg-slate-500 px-4 py-2 hover:bg-slate-700">
+        Pantalones
+      </span>
+      <span className="rounded bg-slate-500 px-4 py-2 hover:bg-slate-700">
+        Zapatillas
+      </span>
     </div>
   );
 }
