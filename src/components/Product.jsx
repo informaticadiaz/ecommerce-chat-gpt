@@ -21,7 +21,7 @@ function Product({ nombre, precio, id, cantidad, img }) {
   return (
     <div className="m-4 flex-col space-y-3 rounded-md bg-slate-600 p-4">
       <h3>{nombre}</h3>
-      <img className="mx-auto " src={img} alt={nombre} />
+      <img className="mx-auto w-full p-2 " src={img} alt={nombre} />
       <p>Precio: ${precio}</p>
       {/* Modal */}
       {showModal && (
