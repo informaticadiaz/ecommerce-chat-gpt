@@ -44,7 +44,6 @@ function App() {
               img={producto.img}
               nombre={producto.nombre}
               precio={producto.precio}
-              id={producto.id}
               cantidad={producto.cantidad}
             />
           ))}
