@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import PropTypes from "prop-types";
+import productosData from "../productos/Productos";
 
 // Crear contexto para el carrito de compras
 const CarritoContext = createContext();
@@ -12,6 +13,19 @@ export function useCarrito() {
 // Componente proveedor del contexto del carrito de compras
 export function CarritoProvider({ children }) {
   const [carrito, setCarrito] = useState([]);
+  const [productos, setProductos] = useState(productosData);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+
+  const filtrarProductosPorCategoria = (categoria) => {
+    if (!categoria) {
+      setProductos(productosData); // Si no hay categoría seleccionada, mostrar todos los productos
+    } else {
+      const productosFiltrados = productosData.filter(
+        (producto) => producto.categoria === categoria,
+      );
+      setProductos(productosFiltrados);
+    }
+  };
 
   // Función para agregar un producto al carrito
   function agregarProducto(producto) {
@@ -101,6 +115,12 @@ export function CarritoProvider({ children }) {
     <CarritoContext.Provider
       value={{
         carrito,
+        productos,
+        categoriaSeleccionada,
+        setCategoriaSeleccionada,
+        filtrarProductosPorCategoria,
+        setCarrito,
+        setProductos,
         agregarProducto,
         eliminarProducto,
         actualizarCantidadProducto,

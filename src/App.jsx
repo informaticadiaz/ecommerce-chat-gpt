@@ -1,5 +1,4 @@
 import "./App.css";
-import productos from "./productos/Productos";
 import Category from "./components/Category";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
@@ -10,6 +9,7 @@ import { useCarrito } from "./utilities/CarritoProvider"; // Asegúrate de impor
 function App() {
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
   const { sumarUnidadesProductos } = useCarrito(); // Obtén la función sumarUnidadesProductos del contexto del carrito
+  const { productos } = useCarrito();
 
   return (
     <>
