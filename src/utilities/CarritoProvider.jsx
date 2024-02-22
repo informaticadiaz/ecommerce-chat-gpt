@@ -6,14 +6,20 @@ import productosData from "../productos/Productos";
 const CarritoContext = createContext();
 
 // Hook personalizado para acceder al contexto del carrito de compras
+// eslint-disable-next-line react-refresh/only-export-components
 export function useCarrito() {
   return useContext(CarritoContext);
 }
 
 // Componente proveedor del contexto del carrito de compras
 export function CarritoProvider({ children }) {
+  // con estos estados vas a poder manejar el estado del carrito
+  // tambien vas a poder filtrar los productos segun su categoria
+  // Definición del estado para el carrito de compras, inicializado como una matriz vacía.
   const [carrito, setCarrito] = useState([]);
+  // Definición del estado para los productos, inicializado con los datos de productosData.
   const [productos, setProductos] = useState(productosData);
+  // Definición del estado para la categoría seleccionada, inicializado como null.
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
 
   const filtrarProductosPorCategoria = (categoria) => {
