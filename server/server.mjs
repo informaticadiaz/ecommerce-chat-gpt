@@ -1,4 +1,6 @@
 import express from 'express';
+import mongoose from 'mongoose';
+
 import productosRoutes from './routes/productosRoutes.js';
 
 const app = express();
